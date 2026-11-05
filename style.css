@@ -1,0 +1,228 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #e8edf4;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.timer {
+  width: min(420px, 95vw);
+  padding: 20px;
+  background: #172033;
+  color: white;
+  border-radius: 18px;
+  box-shadow: 0 12px 35px #0004;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #aab8d0;
+}
+
+button {
+  cursor: pointer;
+  font: inherit;
+}
+
+.header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+}
+
+.display {
+  padding: 25px 0;
+}
+
+.time {
+  text-align: center;
+  font-size: clamp(54px, 12vw, 88px);
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+}
+
+.progress-track {
+  height: 14px;
+  background: #35445e;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 100%;
+  height: 100%;
+  background: #59d6a0;
+  transition: width 0.1s linear;
+}
+
+.status {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 13px;
+  color: #bac6d8;
+}
+
+.controls {
+  display: grid;
+  gap: 12px;
+}
+
+.presets,
+.actions,
+.custom-time {
+  display: flex;
+  gap: 8px;
+}
+
+.presets button,
+.actions button,
+.custom-time button {
+  flex: 1;
+  padding: 10px 5px;
+  border-radius: 9px;
+  border: 1px solid #46556e;
+  background: #293952;
+  color: white;
+}
+
+.presets .selected {
+  border-color: #59d6a0;
+  color: #59d6a0;
+}
+
+.actions .primary {
+  background: #59d6a0;
+  color: #12243a;
+  border-color: #59d6a0;
+  font-weight: bold;
+}
+
+.custom-time {
+  align-items: center;
+}
+
+.custom-time label {
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.custom-time input {
+  width: 65px;
+  padding: 8px;
+  border-radius: 7px;
+  border: none;
+}
+
+.exit-presentation {
+  display: none;
+}
+
+/* Presentation Mode */
+
+body.presentation-mode {
+  background: #172033;
+}
+
+.presentation-mode .timer {
+  width: 100vw;
+  min-height: 100vh;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.presentation-mode .header,
+.presentation-mode .controls {
+  display: none;
+}
+
+.presentation-mode .time {
+  font-size: clamp(80px, 18vw, 220px);
+}
+
+.presentation-mode .progress-track {
+  height: 25px;
+}
+
+.presentation-mode .exit-presentation {
+  display: block;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px;
+  background: #293952;
+  border: 1px solid #46556e;
+  border-radius: 8px;
+  color: white;
+}
+
+/* ===== MAIN TIMER COMPLETION SCREEN ===== */
+
+.timer {
+  position: relative;
+}
+
+.main-finished {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  background: #a7192d;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: inherit;
+}
+
+.main-finished[hidden] {
+  display: none;
+}
+
+.main-finished-content {
+  text-align: center;
+  width: 100%;
+}
+
+.main-finished-icon {
+  font-size: clamp(35px, 7vw, 65px);
+}
+
+.main-finished h1 {
+  font-size: clamp(36px, 9vw, 85px);
+  line-height: 1.1;
+  margin: 10px 0;
+  font-weight: 900;
+}
+
+.main-finished-time {
+  font-size: clamp(28px, 6vw, 55px);
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#mainFinishedReset {
+  background: white;
+  color: #a7192d;
+  border: none;
+  border-radius: 9px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}

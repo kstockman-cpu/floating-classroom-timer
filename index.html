@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Floating Classroom Timer</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="timer.js" defer></script>
+</head>
+<body>
+  <main class="timer" id="timer">
+    
+    <div id="mainFinished" class="main-finished" hidden>
+      <div class="main-finished-content">
+        <div class="main-finished-icon">⏰</div>
+        <h1>TIME IS UP!</h1>
+        <div class="main-finished-time">00:00</div>
+        <button id="mainFinishedReset" type="button">
+          Reset Timer
+        </button>
+      </div>
+    </div>
+
+    <button id="floatBtn" onclick="openFloatingTimer()">
+        ↗ Open Floating Timer
+    </button>   
+    <header class="header">
+      <span>CLASSROOM TIMER</span>
+      <button id="presentationBtn"
+              title="Presentation Mode">⛶</button>
+    </header>
+
+    <section class="display" id="display">
+      <div class="time" id="timeDisplay">10:00</div>
+      <div class="progress-track">
+        <div class="progress-fill"
+             id="progressFill"></div>
+      </div>
+      <div class="status" id="status">
+        Ready to start
+      </div>
+    </section>
+
+    <section class="controls">
+      <div class="presets">
+        <button data-minutes="5">5 min</button>
+        <button data-minutes="10" class="selected">10 min</button>
+        <button data-minutes="15">15 min</button>
+        <button data-minutes="20">20 min</button>
+      </div>
+
+      <div class="custom-time">
+        <label for="customMinutes">Custom minutes:</label>
+        <input id="customMinutes" type="number"
+               min="1" max="999" value="10">
+        <button id="setCustomBtn">Set</button>
+      </div>
+
+      <div class="actions">
+        <button id="resetBtn">Reset</button>
+        <button id="startBtn" class="primary">Start</button>
+      </div>
+    </section>
+
+    <button id="exitPresentation"
+            class="exit-presentation">
+      Exit Presentation Mode
+    </button>
+  </main>
+</body>
+</html>
